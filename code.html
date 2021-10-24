@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Jade Page</title>
+    <title>FLIP SIDE: A Coding Project By Jade Page</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="/img/faviconwhite.png" class="d-inline-block align-text-top"
-                    width="28" height="24">APP NAME</a>
+                    width="28" height="24">FLIP SIDE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://jadepageportfolio.netlify.app/">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/jadepage/FlipSide">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://jadepageportfolio.netlify.app/">About</a>
@@ -53,22 +53,62 @@
     <!-- === Main Section === -->
     <main class="flex-shrink-0">
         <div class="container col-xxl-8 py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for FLIP SIDE.</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert("Hello World");
+                        // Get the string from the page
+                        // controller function
+                        function getValue() {
+                        
+                            document.getElementById('alert').classList.add('invisible');
+                            
+                            let userString = document.getElementById('userString').value;
+                            
+                            let revString = reverseString(userString);
+                            
+                            displayString(revString);
+                        }
+                        
+                        // Reverse the string
+                        // logic function
+                        function reverseString(userString) {
+                            
+                            let revString = [];
+                        
+                            // Reverse a string using a for loop
+                            for (let index = userString.length -1; index >= 0; index--) {
+                                
+                                revString += userString[index];
+                            }
+                            return revString;
+                        }
+                        
+                        // Display the reversed string to the user
+                        // view function
+                        function displayString(revString) {
+                            
+                            // Write to the page
+                            document.getElementById('msg').innerHTML = `Your string reversed is: ${revString}`;
+                            // Show the alert box
+                            document.getElementById('alert').classList.remove('invisible');
                         }
                     </code>
                 </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p>The Code is structured in multiple functions.</p>
+                    <h5>getValue Function</h5>
+                    <p>The function is used to contol the program and get's the input from the user.</p>
+                    <h5>reverseString Function</h5>
+                    <p>This function is where the logic is run. A for loop is used to reverse the string by using the
+                        string's length and looping over the string in reverse.</p>
+                    <p>Each character of teh string is palced in an array and then the array is returned.</p>
+                    <h5>displayString Function</h5>
+                    <p>This function is used to display the result to the user.</p>
+                    <p>This is done by setting the innerHtml of the html element with the id of msg. The invisble class
+                        is removed so that the message can be displayed to the user.</p>
                 </div>
             </div>
         </div>
